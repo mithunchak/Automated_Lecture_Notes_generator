@@ -1,0 +1,342 @@
+# Lecture Notes: Binary - tree
+
+# "Binary Tree Traversals"
+
+### 1. Introduction to Binary Tree Traversals
+
+**1. Introduction to Binary Tree Traversals**
+
+In this section, we will explore the concept of binary tree traversals, which is a crucial operation in binary trees. A binary tree traversal is a process of moving through all the nodes in a binary tree and visiting each one in turn.
+
+**Definition of Key Concepts**
+
+* **Traversal**: Moving through all the nodes in a binary tree and visiting each one in turn.
+* **Node**: A single element in the binary tree, which can have a value and pointers to its left and right child nodes.
+* **Left subtree**: The set of nodes that are the left child nodes of a node.
+* **Right subtree**: The set of nodes that are the right child nodes of a node.
+* **Root node**: The topmost node in the binary tree.
+
+**Important Points**
+
+* There are many orders possible in binary tree traversal since it is a nonlinear data structure.
+* The three basic tasks involved in binary tree traversal are:
+	+ Visiting a node (denoted by V)
+	+ Traversing the left subtree (denoted by L)
+	+ Traversing the right subtree (denoted by R)
+* There are six ways to arrange these tasks: VLR, LVR, LRV, VRL, RVL, RLV
+
+**Standard Traversals**
+
+* **Preorder Traversal**: Root node is visited before the subtrees, and then the left and right subtrees are traversed in preorder.
+* **Inorder Traversal**: Left subtree is traversed in inorder, then the root node is visited, and finally the right subtree is traversed in inorder.
+* **Postorder Traversal**: Left subtree is traversed in postorder, then the right subtree is traversed in postorder, and finally the root node is visited.
+
+**Example**
+
+Consider the binary tree shown in the slides:
+
+F
+B
+G
+I
+D
+C
+E
+A
+H
+
+The preorder traversal of this tree is: F, B, G, I, D, C, E, A, H
+
+The inorder traversal of this tree is: F, B, A, C, D, E, G, H, I
+
+The postorder traversal of this tree is: F, G, I, H, E, D, C, B, A
+
+### 2. Types of Binary Tree Traversals (Preorder, Inorder, Postorder)
+
+**2. Types of Binary Tree Traversals (Preorder, Inorder, Postorder)**
+
+**Preorder Traversal**
+
+* Definition: Visiting the root node before traversing the subtrees.
+* Steps:
+	+ Root Node is visited before the subtrees.
+	+ Left subtree is traversed in preorder.
+	+ Right subtree is traversed in preorder.
+* Example: F, B, G, I, D, C, E, A, H, F, B, A, D, C, E, G, I, H
+
+**Inorder Traversal**
+
+* Definition: Visiting the left subtree, then the root node, and finally the right subtree.
+* Steps:
+	+ Left subtree is traversed in inorder.
+	+ Root Node is visited.
+	+ Right subtree is traversed in inorder.
+* Example: F, B, G, I, D, C, E, A, H, A, B, C, D, E, F, G, H, I
+
+**Postorder Traversal**
+
+* Definition: Visiting the left subtree and right subtree before the root node.
+* Steps:
+	+ Left subtree is traversed in postorder.
+	+ Right subtree is traversed in postorder.
+	+ Root Node is visited.
+* Example: F, B, G, I, D, C, E, A, H, A, C, E, D, B, H, I, G, F
+
+**Important Points**
+
+* In preorder traversal, the root node is visited before the subtrees.
+* In inorder traversal, the left subtree is visited before the root node, and the right subtree is visited after the root node.
+* In postorder traversal, the left and right subtrees are visited before the root node.
+* These traversal methods can be used to perform various operations on a binary tree, such as printing the tree, searching for a specific node, or inserting a new node.
+
+### 3. Preorder Traversal
+
+**3. Preorder Traversal**
+
+Preorder traversal is a type of traversal in a binary tree where the root node is visited before its subtrees. This traversal is also known as VLR (Visit, Left, Right) or "Depth-First Traversal" (DFT).
+
+**Key Concepts:**
+
+* **Preorder Traversal:** A traversal in a binary tree where the root node is visited before its subtrees.
+* **VLR:** Visit, Left, Right, the order in which the nodes are visited during preorder traversal.
+
+**Important Points:**
+
+* In preorder traversal, the root node is visited first.
+* The left subtree is traversed in preorder.
+* The right subtree is traversed in preorder.
+* The order of traversal is: Root -> Left -> Right.
+
+**Example:**
+
+Consider the binary tree shown below:
+
+F
+B
+G
+I
+D
+C
+E
+A
+H
+
+The preorder traversal of this tree would be:
+
+F, B, G, I, D, C, E, A, H
+
+**Algorithm:**
+
+1. Visit the root node.
+2. Traverse the left subtree in preorder.
+3. Traverse the right subtree in preorder.
+
+**Example Code:**
+
+```
+preorderTraversal(root) {
+  if (root == null) return;
+  print(root.data); // Visit the root node
+  preorderTraversal(root.left); // Traverse the left subtree
+  preorderTraversal(root.right); // Traverse the right subtree
+}
+```
+
+**Note:**
+
+Preorder traversal is often used to create a copy of the binary tree or to perform operations on the tree that require visiting the root node first.
+
+### 4. Inorder Traversal
+
+**4. Inorder Traversal**
+
+**Definition:** Inorder traversal is a type of traversal in a binary tree where the left subtree is traversed, then the root node, and finally the right subtree.
+
+**Steps:**
+
+* Left subtree is traversed in inorder
+* Root Node is visited
+* Right subtree is traversed in inorder
+
+**Key Points:**
+
+• The inorder traversal visits the nodes in ascending order.
+• The traversal starts at the root node and moves to the leftmost node, then backtracks to the root and moves to the rightmost node.
+• The traversal continues until all nodes have been visited.
+
+**Algorithm:**
+
+```
+iterativeInorder(root)
+  s = emptyStack
+  current = root
+  do {
+    while(current != null) {
+      // Travel down left branches as far as possible
+      s.push(current)
+      current = current.left
+    }
+    // Backtrack and visit the root node
+    current = s.pop()
+    print(current.info)
+    // Move to the right subtree
+    current = current.right
+  } while(current != null)
+```
+
+**Example:**
+
+Suppose we have the following binary tree:
+
+```
+       5
+     /   \
+    3     6
+   / \   / \
+  2   4 1   7
+```
+
+The inorder traversal would visit the nodes in the following order:
+
+```
+2, 3, 4, 5, 6, 7
+```
+
+**Important Notes:**
+
+• The iterative inorder traversal uses a stack to keep track of the nodes to be visited.
+• The traversal starts at the root node and moves to the leftmost node, then backtracks to the root and moves to the rightmost node.
+• The traversal continues until all nodes have been visited.
+
+By following these steps and using the algorithm, we can perform an inorder traversal of a binary tree and visit the nodes in ascending order.
+
+### 5. Postorder Traversal
+
+**5. Postorder Traversal**
+
+**Definition:** Postorder traversal is a type of traversal in which the left subtree is traversed first, followed by the right subtree, and finally the root node is visited.
+
+**Key Concepts:**
+
+* **Postorder traversal**: A type of traversal in which the left subtree is traversed first, followed by the right subtree, and finally the root node is visited.
+* **Stack**: A data structure used to store nodes to be visited in the traversal.
+* **Two stacks**: In the iterative postorder traversal algorithm, two stacks (s1 and s2) are used to store nodes to be visited.
+
+**Algorithm:**
+
+1. Initialize two stacks, s1 and s2, to empty.
+2. Push the root node onto s1.
+3. While s1 is not empty, do the following:
+	* Pop the top node from s1 and push it onto s2.
+	* If the popped node has a left child and it is not null, push it onto s1.
+	* If the popped node has a right child and it is not null, push it onto s1.
+4. While s2 is not empty, pop the top node from s2 and print its value.
+
+**Example:**
+
+Suppose we have the following binary tree:
+```
+      5
+     / \
+    3   6
+   / \   \
+  2   4   1
+```
+The iterative postorder traversal algorithm would work as follows:
+
+1. Initialize s1 and s2 to empty.
+2. Push 5 onto s1.
+3. Pop 5 from s1 and push it onto s2.
+4. Push 3 onto s1.
+5. Pop 3 from s1 and push it onto s2.
+6. Push 2 onto s1.
+7. Pop 2 from s1 and push it onto s2.
+8. Push 4 onto s1.
+9. Pop 4 from s1 and push it onto s2.
+10. Pop 3 from s2 and print its value (3).
+11. Pop 6 from s1 and push it onto s2.
+12. Pop 1 from s1 and push it onto s2.
+13. While s2 is not empty, pop the top node from s2 and print its value:
+	* 1
+	* 4
+	* 2
+	* 6
+	* 3
+	* 5
+
+The output of the iterative postorder traversal algorithm would be: 1, 4, 2, 6, 3, 5.
+
+**Important Points:**
+
+* The iterative postorder traversal algorithm uses two stacks, s1 and s2, to store nodes to be visited.
+* The algorithm pushes the root node onto s1 and then repeatedly pops nodes from s1, pushes them onto s2, and pushes their children onto s1 until s1 is empty.
+* Finally, the algorithm pops nodes from s2 and prints their values in the order they were visited.
+
+### 6. Iterative Inorder Traversal
+
+**6. Iterative Inorder Traversal**
+
+**Definition:** Iterative Inorder Traversal is a method of traversing a binary tree in an inorder manner, without using recursion.
+
+**Key Concepts:**
+
+* **Stack:** A data structure that follows the Last-In-First-Out (LIFO) principle, used to store nodes to be visited.
+* **Current Node:** The current node being processed.
+* **Left and Right Children:** The left and right child nodes of the current node.
+
+**Algorithm:**
+
+* `iterativeInorder(root)`
+	+ `s = emptyStack`
+	+ `current = root`
+	+ `do`
+		- `while(current != null)`
+			- `push` `current` to `s`
+			- `current = current.left`
+		- `while(!s.isEmpty())`
+			- `pop` `current` from `s`
+			- `print` `current.value`
+			- `current = current.right`
+
+**Important Points:**
+
+* The algorithm uses a stack to store nodes to be visited.
+* The stack is initialized with the root node.
+* The algorithm traverses the left subtree of the current node, and then the right subtree.
+* The algorithm prints the value of the current node after visiting the right subtree.
+* The algorithm continues until the stack is empty.
+
+**Example:**
+
+Suppose we have the following binary tree:
+
+```
+     5
+    / \
+   3   6
+  / \   \
+ 2   4   8
+```
+
+The iterative inorder traversal of this tree would be:
+
+1. Initialize the stack and set the current node to the root node (5).
+2. Push the root node to the stack and set the current node to its left child (3).
+3. Push the left child node to the stack and set the current node to its left child (2).
+4. Push the left child node to the stack and set the current node to its left child (null).
+5. Pop the top node from the stack (2) and print its value (2).
+6. Set the current node to its right child (4).
+7. Push the right child node to the stack and set the current node to its left child (null).
+8. Pop the top node from the stack (4) and print its value (4).
+9. Set the current node to its right child (null).
+10. Pop the top node from the stack (3) and print its value (3).
+11. Set the current node to its right child (6).
+12. Push the right child node to the stack and set the current node to its left child (null).
+13. Pop the top node from the stack (6) and print its value (6).
+14. Set the current node to its right child (8).
+15. Push the right child node to the stack and set the current node to its left child (null).
+16. Pop the top node from the stack (8) and print its value (8).
+17. The stack is empty, so the algorithm terminates.
+
+The output of the iterative inorder traversal is: 2, 3, 4, 5, 6, 8.
+

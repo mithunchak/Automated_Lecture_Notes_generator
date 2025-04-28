@@ -1,0 +1,278 @@
+# Lecture Notes: Tree - traversal
+
+# "n-ary Tree Traversal"
+
+### 1. Definition of n-ary Tree
+
+**1. Definition of n-ary Tree**
+
+An n-ary tree is a rooted tree in which every node has no more than n children. This definition is in contrast to a binary tree, where every node has no more than two children.
+
+**Key Concepts:**
+
+* Rooted tree: A tree with a single node at the top, called the root.
+* Node: A single element in the tree, which can have children and/or siblings.
+* Children: The nodes that are directly connected to a node.
+* Siblings: The nodes that are at the same level as a node and have the same parent.
+* n: The maximum number of children a node can have.
+
+**Important Points:**
+
+* An n-ary tree is not necessarily a tree where every node has exactly n children. It is a tree where every node has no more than n children.
+* In an n-ary tree, a node can have fewer than n children, but not more than n.
+* The maximum number of branches emanating from any node in an n-ary tree is n.
+
+**Example:**
+
+Consider an n-ary tree with n = 5. In this example, only node A has 5 children, while the rest of the nodes have fewer children.
+
+**Ordering in n-ary Trees:**
+
+In an n-ary tree, the nodes can be ordered in a specific way to create an ordered tree. This ordering is important in distinguishing between different n-ary trees.
+
+**Forest:**
+
+A forest is an ordered set of ordered trees. It is a collection of disjoint trees that are connected at the root level.
+
+### 2. Structure of an n-ary Tree
+
+**2. Structure of an n-ary Tree**
+
+An n-ary tree is a tree data structure in which each node has a variable number of children, as opposed to a binary tree where each node has at most two children. In an n-ary tree, each node is called a "node" or "vertex", and each edge is called a "link".
+
+**Key Concepts:**
+
+* **Node Structure:** A node in an n-ary tree typically consists of:
+	+ Information field (e.g. integer, string, etc.)
+	+ Array of pointers to child nodes (up to n children)
+	+ Array of pointers to sibling nodes (up to n siblings)
+* **Left Child-Right Sibling (LCRS) Representation:** A common implementation of an n-ary tree node structure is the LCRS representation, where:
+	+ Each node has a pointer to its leftmost child
+	+ Each node has a pointer to its immediate sibling (if it exists)
+	+ All children of a node are linked together as a linked list
+	+ The leftmost child is linked to the parent node, while the remaining children are not
+
+**Important Points:**
+
+* The LCRS representation allows for efficient traversal of the tree, as only the leftmost child needs to be linked to the parent node.
+* The use of an array of pointers to child nodes allows for a variable number of children, making it suitable for n-ary trees.
+* The use of an array of pointers to sibling nodes allows for efficient traversal of the tree, as each node only needs to keep track of its immediate sibling.
+
+**Example:**
+
+Suppose we have an n-ary tree with the following structure:
+```
+       A
+      / \
+     B   C
+    / \   \
+   D   E   F
+```
+Using the LCRS representation, we can implement the node structure as follows:
+```
+struct node {
+    int info;
+    struct node *child[3]; // array of 3 pointers to child nodes
+    struct node *sibling; // pointer to immediate sibling node
+};
+```
+In this example, node A has three child nodes (B, C, and D) and one sibling node (C). Node B has two child nodes (E and F) and no sibling node.
+
+### 3. Types of n-ary Tree Traversal (Preorder, Inorder, Postorder)
+
+**3. Types of n-ary Tree Traversal (Preorder, Inorder, Postorder)**
+
+In this section, we will discuss the three primary types of n-ary tree traversal: Preorder, Inorder, and Postorder. These traversal techniques are essential in navigating and processing the nodes of a tree data structure.
+
+**Preorder Traversal**
+
+* Definition: Preorder traversal visits the root node first, followed by the traversal of the left subtree, and finally the right subtree.
+* Steps:
+	+ Visit the root of the first tree in the forest
+	+ Traverse in preorder the forest formed by the subtrees of the first tree, if any
+	+ Traverse in preorder the forest formed by the remaining trees in the forest, if any
+
+**Preorder Example**
+
+The preorder traversal of the example tree shown on Slide 5 is:
+
+A, B, E, F, C, G, H, D
+
+**Preorder Algorithm**
+
+The pseudocode for the preorder traversal algorithm is shown on Slide 6:
+```c
+void preorder(TREE *root) {
+    if (root != NULL) {
+        printf(" %d ", root->info);
+        preorder(root->child);
+        preorder(root->sibling);
+    }
+}
+```
+**Inorder Traversal**
+
+* Definition: Inorder traversal visits the left subtree, then the root node, and finally the right subtree.
+* Steps:
+	+ Traverse in inorder the forest formed by the subtrees of the first tree, if any
+	+ Visit the root of the first tree in the forest
+	+ Traverse in inorder the forest formed by the remaining trees in the forest, if any
+
+**Inorder Example**
+
+The inorder traversal of the example tree shown on Slide 8 is:
+
+E, F, B, H, G, C, D, A
+
+**Inorder Algorithm**
+
+The pseudocode for the inorder traversal algorithm is not explicitly shown in the slides, but it can be derived from the preorder algorithm by swapping the order of the recursive function calls.
+
+**Postorder Traversal**
+
+* Definition: Postorder traversal visits the left subtree, then the right subtree, and finally the root node.
+* Steps:
+	+ Traverse in postorder the forest formed by the subtrees of the first tree, if any
+	+ Traverse in postorder the forest formed by the remaining trees in the forest, if any
+	+ Visit the root of the first tree in the forest
+
+Note that the postorder traversal algorithm is not explicitly shown in the slides, but it can be derived from the preorder algorithm by swapping the order of the recursive function calls and visiting the root node last.
+
+### 4. Implementation of n-ary Tree Traversal
+
+**4. Implementation of n-ary Tree Traversal**
+
+**Definition of Key Concepts**
+
+* **n-ary Tree Traversal**: The process of traversing an n-ary tree, which is a tree with more than two children per node.
+* **Binary Tree Representation**: A binary tree representation is a conversion of an n-ary tree into a binary tree, where each node has at most two children.
+* **Merging Binary Trees**: The process of combining multiple binary trees into a single binary tree, while preserving the structure and relationships between the nodes.
+
+**Important Points**
+
+* To implement n-ary tree traversal, it is necessary to convert the n-ary tree into a binary tree representation.
+* The binary tree representation is formed by linking the nodes of the n-ary tree in a specific way, where each node has at most two children.
+* The merging of binary trees is done by attaching the right child of the root node to the root node of the next binary tree, and so on.
+* The left subtree of the root node contains all the nodes from the original n-ary tree, while the right subtree contains all the remaining nodes.
+
+**Algorithm for Merging Binary Trees**
+
+* Convert each n-ary tree into a binary tree representation.
+* Link the nodes of the binary tree representations together to form a single binary tree.
+* The root node of the resulting binary tree is the root node of the first binary tree representation.
+* The left subtree of the root node contains all the nodes from the first binary tree representation, while the right subtree contains all the nodes from the remaining binary tree representations.
+
+**Example**
+
+* Suppose we have three n-ary trees, T1, T2, and T3.
+* Convert each n-ary tree into a binary tree representation.
+* Link the nodes of the binary tree representations together to form a single binary tree.
+* The resulting binary tree has the root node as the root node of T1, with the left subtree containing all the nodes from T1 and the right subtree containing all the nodes from T2 and T3.
+
+**Code Snippet**
+
+* The code snippet for merging binary trees is as follows:
+```c
+void mergeBinaryTrees(TREE *root1, TREE *root2, TREE *root3) {
+    if (root1 == NULL) {
+        return;
+    }
+    root1->right = root2;
+    root2->left = root1->child;
+    root2->right = root3;
+    root3->left = root2->child;
+    root3->right = root2->sibling;
+}
+```
+This code snippet assumes that the nodes of the binary tree representations have pointers to their children and siblings.
+
+### 5. Example of n-ary Tree Traversal
+
+**5. Example of n-ary Tree Traversal**
+
+In this section, we will explore an example of converting a forest of n-ary trees to a single binary tree. This process involves converting each n-ary tree to a binary tree representation and then combining them into a single binary tree.
+
+**Key Concepts:**
+
+* **n-ary Tree:** A tree in which a node can have more than two children.
+* **Binary Tree:** A tree in which a node can have at most two children.
+* **Forest:** A collection of trees.
+
+**Example:**
+
+Suppose we have three n-ary trees, T1, T2, and T3, in a forest. To convert this forest to a single binary tree, we follow these steps:
+
+* Convert each n-ary tree to a binary tree representation.
+* Combine the binary tree representations into a single binary tree.
+
+**Step 1: Convert each n-ary tree to a binary tree representation**
+
+* T1: A -> B (left child), no right child.
+* B -> C (right child), C -> D (right child).
+* E -> F (left child), G -> H (left child), I (sibling).
+
+**Step 2: Combine the binary tree representations into a single binary tree**
+
+* Attach the root of T2 (E) to the right of the root of T1 (A).
+* Attach the remaining subtrees of T2 and T3 to the right of E.
+
+**Resulting Binary Tree:**
+
+* A (root)
+	+ B (left child)
+		- C (right child)
+			- D (right child)
+	+ E (right child)
+		- F (left child)
+		- G (left child)
+			- H (left child)
+		- I (sibling)
+
+**Important Points:**
+
+* The resulting binary tree has the root as T1, with its left subtree consisting of all trees in T1, and its right subtree consisting of all remaining trees in the forest.
+* The left subtree of the root is formed by attaching the subtrees of T1, while the right subtree is formed by attaching the subtrees of T2 and T3.
+
+By following these steps, we have successfully converted the forest of n-ary trees to a single binary tree.
+
+### 6. Memory Utilization in n-ary Tree Traversal
+
+**6. Memory Utilization in n-ary Tree Traversal**
+
+When traversing an n-ary tree, memory utilization is a crucial aspect to consider. In this section, we will discuss the memory requirements for n-ary tree traversal and how it can be optimized.
+
+**Key Concepts:**
+
+* **Memory Utilization:** Refers to the amount of memory required to store the data in the n-ary tree.
+* **n-ary Tree Traversal:** A traversal technique used to visit each node in the n-ary tree.
+* **Preorder, Inorder, and Postorder Traversal:** Three types of traversal techniques used to visit each node in the n-ary tree.
+
+**Important Points:**
+
+* During n-ary tree traversal, each node is visited only once.
+* The memory required to store the data in the n-ary tree depends on the number of nodes and the data stored in each node.
+* Preorder traversal visits the root node first, followed by the left subtree, and then the right subtree.
+* Inorder traversal visits the left subtree, followed by the root node, and then the right subtree.
+* Postorder traversal visits the left subtree, followed by the right subtree, and then the root node.
+
+**Formulas and Algorithms:**
+
+* The time complexity of n-ary tree traversal is O(n), where n is the number of nodes in the tree.
+* The space complexity of n-ary tree traversal is O(h), where h is the height of the tree.
+
+**Example:**
+
+Consider an n-ary tree with the following structure:
+```
+      A
+     /|\
+    B C D
+   /|\
+  E F G
+```
+The memory required to store this tree would be approximately 4 bytes per node, assuming each node stores an integer value. The total memory required would be 4 bytes x 6 nodes = 24 bytes.
+
+**Conclusion:**
+
+In conclusion, memory utilization is an important aspect to consider when traversing an n-ary tree. By understanding the memory requirements and optimizing the traversal technique, we can reduce the memory usage and improve the performance of the algorithm.
+

@@ -1,0 +1,213 @@
+# Lecture Notes: Agentic - shylaja
+
+# "Agentic Workflow in Large Language Models"
+
+### 1. Introduction to Agentic Workflow
+
+**1. Introduction to Agentic Workflow**
+
+**Definition:** Agentic workflow refers to a workflow that involves the use of Large Language Models (LLMs) in a compounded manner to generate a better response to a query. This workflow does not necessarily mean that all pieces are LLMs, but rather that multiple modules, including LLMs, can be used to generate a better response.
+
+**Key Concepts:**
+
+* **Compounded LLM:** A workflow that involves multiple LLMs working together to generate a better response.
+* **Agent Workflow:** A workflow that uses multiple modules, including LLMs, to generate a better response.
+* **Orchestration Agent:** An agent that decides how many times the workflow needs to be repeated, what changes need to be brought in, and what all needs to be fed into the system.
+
+**Characteristics of Agentic Workflow:**
+
+* **Iterative Process:** The workflow involves multiple iterations, where the output from one LLM is fed into another LLM or a different module.
+* **Multi-Path Flow:** The workflow does not necessarily follow a linear path, but rather involves multiple paths and modules working together.
+* **Goal-Oriented:** The primary goal of the agentic workflow is to generate a better response to a query.
+
+**Advantages of Agentic Workflow:**
+
+* **Improved Response Quality:** The use of multiple LLMs and modules can lead to improved response quality and accuracy.
+* **Increased Flexibility:** The workflow can be customized to suit different applications and use cases.
+* **Enhanced Collaboration:** The use of multiple modules and LLMs can facilitate enhanced collaboration and knowledge sharing.
+
+**Example:** In an agentic workflow, a user may ask an LLM to generate a draft marketing plan for a product. The output from this LLM is then fed into a critic LLM, which provides feedback on the draft. The output from the critic LLM is then fed into a third LLM, which generates a refined draft. This process can be repeated multiple times to generate a final response.
+
+**Formula/Algorithm:** None mentioned in this section.
+
+**Example Code:** None mentioned in this section.
+
+**References:** None mentioned in this section.
+
+### 2. Compounded LLM and Agentic Workflow
+
+**2. Compounded LLM and Agentic Workflow**
+
+**Definition of Key Concepts:**
+
+* **Compounded LLM (Large Language Model):** A large language model that has been trained on a massive dataset and can generate human-like language outputs.
+* **Agentic Workflow:** A design pattern that enables the creation of intelligent agents that can interact with users and other systems to accomplish tasks.
+
+**Important Points:**
+
+* Compounded LLMs are not enough to achieve agentic workflow; additional components such as orchestration agents and agentic applications are required.
+* Agentic workflow is a design pattern that can be applied to various AI stack layers, including large language models.
+* Design patterns in software engineering, such as singleton and factory patterns, can be applied to agentic workflow.
+* Agentic workflow requires the creation of reusable code snippets that can be customized for specific problem-solving tasks.
+* The importance of design patterns in software engineering is highlighted, as they enable developers to solve common problems in a standardized way.
+
+**Formulas, Algorithms, or Examples:**
+
+* None mentioned in this section.
+
+**Notes:**
+
+* The importance of compounded LLMs in agentic workflow is discussed, highlighting the need for additional components to achieve intelligent agent capabilities.
+* The concept of design patterns in software engineering is introduced, and its relevance to agentic workflow is explored.
+* The section concludes by emphasizing the significance of design patterns in software engineering and their potential application to agentic workflow.
+
+### 3. Orchestration Agent and Agentic Workflow
+
+**3. Orchestration Agent and Agentic Workflow**
+
+The orchestration agent plays a crucial role in the agentic workflow, enabling the efficient processing of tasks by identifying the relevant agent responsible for completing each task. In this context, an agent refers to a software component or module that performs a specific function or task.
+
+**Definition of Key Concepts:**
+
+* **Agent:** A software component or module that performs a specific function or task.
+* **Orchestration Agent:** An agent responsible for identifying the relevant agent responsible for completing each task and coordinating their actions.
+* **Agentic Workflow:** A workflow that utilizes agents to perform specific tasks, with the orchestration agent coordinating their actions.
+
+**Important Points:**
+
+* The orchestration agent acts as a bridge between the LLM and the specific agents responsible for completing tasks.
+* The orchestration agent identifies the relevant agent responsible for completing each task based on the input received from the LLM.
+* The orchestration agent coordinates the actions of the agents to ensure efficient processing of tasks.
+* The agentic workflow is not limited to LLMs; it can be applied to any software development project that involves multiple agents working together.
+
+**Example:**
+
+* In the example provided, the orchestration agent identified the question as related to cricket and passed it to the cricket agent, which fetched data from its own cricket database and produced an answer.
+* The orchestration agent then passed the answer back to the LLM, which produced the final output.
+
+**Planning Pattern:**
+
+* The planning pattern involves identifying the necessary steps required to complete a task, such as planning the layout of a room for a robot to clean.
+* The planner agent is responsible for planning the subtasks involved in carrying out the global task.
+* The planner agent makes decisions about the sequence of actions and the resources required to complete the task.
+
+**Recognition Agent:**
+
+* The recognition agent is responsible for identifying objects or patterns in an image or video, such as recognizing a boy in an image.
+* The recognition agent may use machine learning models, such as yellow or open pose, to detect the pose of the person.
+
+**Open Pose Agent:**
+
+* The open pose agent detects the pose of the person in an image or video.
+* The open pose agent may use machine learning models to identify the pose of the person.
+
+**Fusion Agent:**
+
+* The fusion agent combines the output of the recognition agent and the open pose agent to generate the final output.
+* The fusion agent makes decisions about how to combine the outputs of the recognition agent and the open pose agent.
+
+**Decision Making:**
+
+* Decision making is involved in the planning pattern, as the planner agent makes decisions about the sequence of actions and the resources required to complete the task.
+* Decision making is also involved in the fusion agent, as it makes decisions about how to combine the outputs of the recognition agent and the open pose agent.
+
+### 4. Agentic Architectural Patterns
+
+**4. Agentic Architectural Patterns**
+
+In this section, we will explore the various architectural patterns that enable agentic workflow in large language models. These patterns are crucial for coordinating and orchestrating the various components of the AI stack, ensuring efficient and effective deployment of AI applications.
+
+**Definition of Key Concepts:**
+
+* **Agentic Workflow:** A workflow that enables large language models to make decisions, take actions, and adapt to new situations in a flexible and autonomous manner.
+* **Agent:** A software component that represents a decision-making entity, capable of perceiving its environment, making decisions, and taking actions.
+* **Orchestration:** The process of coordinating and managing the interactions between multiple agents and components in the AI stack.
+
+**Important Points:**
+
+* **Decision-Making:** Agentic workflow involves decision-making, which can be achieved through various patterns, such as:
+	+ Rule-based decision-making
+	+ Machine learning-based decision-making
+	+ Hybrid decision-making
+* **Orchestration:** Orchestration is critical for agentic workflow, as it enables the coordination of multiple agents and components in the AI stack.
+	+ Patterns for orchestration include:
+		- Centralized orchestration
+		- Decentralized orchestration
+		- Hybrid orchestration
+* **Scalability:** Agentic workflow requires scalability to handle large volumes of data and complex decision-making processes.
+	+ Techniques for scalability include:
+		- Distributed processing
+		- Cloud-based infrastructure
+		- Microservices architecture
+
+**Formulas, Algorithms, or Examples:**
+
+* **Example:** A simple agent-based system for sentiment analysis:
+	+ Input: Text data
+	+ Processing: Sentiment analysis using machine learning algorithms
+	+ Output: Sentiment score
+
+**Conclusion:**
+
+Agentic architectural patterns play a crucial role in enabling large language models to make decisions, take actions, and adapt to new situations in a flexible and autonomous manner. By understanding these patterns, we can design and deploy more effective and efficient AI applications that can drive innovation and transformation in various industries.
+
+### 5. The AI Stack and Agentic Workflow
+
+**5. The AI Stack and Agentic Workflow**
+
+The AI stack refers to the layered architecture of artificial intelligence, comprising interconnected layers that enable the development and deployment of AI applications. The AI stack consists of:
+
+* **Semiconductors**: Providing the necessary computational power for AI models
+* **Cloud Infrastructure**: Offering scalable resources for data storage and processing
+* **Applications**: Where AI algorithms are translated into practical solutions addressing real-world problems
+
+The AI stack is crucial for understanding the dependencies and opportunities within the broader AI ecosystem.
+
+**Key Concepts:**
+
+* **Generative AI**: Enables the rapid development and iteration of machine learning models, accelerating innovation
+* **Agentic Workflow**: A modularized approach to AI development, involving multiple agents working together to achieve a common goal
+
+**Important Points:**
+
+• Generative AI fosters a culture of rapid experimentation, allowing multiple hypotheses to be tested and refined efficiently
+• The AI stack is a layered architecture, with each layer building upon the previous one
+• The agentic workflow involves multiple agents working together to achieve a common goal, enabling modularized AI development
+• The AI stack and agentic workflow are crucial for understanding the dependencies and opportunities within the broader AI ecosystem
+
+**Formulas, Algorithms, or Examples:**
+
+* None mentioned in the transcript or slides.
+
+Note: The provided transcript and slides do not explicitly mention formulas, algorithms, or examples related to the AI stack and agentic workflow. However, the concept of generative AI and its impact on innovation is discussed in the slides.
+
+### 6. Conclusion and Future Directions
+
+**6. Conclusion and Future Directions**
+
+**Key Concepts:**
+
+* **Agentic Workflow:** A workflow that involves the collaboration and interaction between humans and machines to achieve a specific goal.
+* **Large Language Models:** Deep learning models that are trained on vast amounts of text data to generate human-like language outputs.
+* **Generative AI:** A subfield of AI that focuses on generating new, original content, such as text, images, or music.
+
+**Important Points:**
+
+• The agentic workflow in large language models has the potential to revolutionize the way we interact with machines and achieve complex tasks.
+• The integration of human and machine capabilities can lead to improved accuracy, efficiency, and creativity in tasks such as text generation, language translation, and chatbots.
+• The development of agentic workflows in large language models requires a deep understanding of human-machine collaboration, AI algorithms, and natural language processing.
+• Future directions in this field include exploring the use of agentic workflows in other AI applications, such as computer vision and robotics, and developing new algorithms and models that can better facilitate human-machine collaboration.
+
+**Formulas, Algorithms, or Examples:**
+
+* The agentic workflow can be represented as a graph, where nodes represent human and machine agents, and edges represent the interactions and collaborations between them.
+* The generative AI models used in large language models can be trained using algorithms such as transformer-based models, recurrent neural networks, and long short-term memory networks.
+* An example of an agentic workflow in large language models is the use of chatbots to assist customers in a customer service setting, where the chatbot generates responses based on user input and human customer service representatives review and refine the responses.
+
+**Future Directions:**
+
+• Developing new AI algorithms and models that can better facilitate human-machine collaboration and improve the accuracy and efficiency of agentic workflows.
+• Exploring the use of agentic workflows in other AI applications, such as computer vision and robotics, to achieve complex tasks and improve human-machine collaboration.
+• Investigating the potential applications of agentic workflows in industries such as healthcare, finance, and education to improve patient outcomes, financial transactions, and educational experiences.
+• Conducting user studies and evaluations to assess the effectiveness and usability of agentic workflows in different contexts and applications.
+

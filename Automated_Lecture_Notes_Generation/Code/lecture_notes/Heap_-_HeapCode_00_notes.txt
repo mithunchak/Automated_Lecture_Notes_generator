@@ -1,0 +1,284 @@
+# Lecture Notes: Heap - HeapCode 00
+
+# "Implementation of Heap Data Structure"
+
+### 1. Definition and Properties of Heap
+
+**1. Definition and Properties of Heap**
+
+**Definition:** A heap can be defined as a binary tree with keys assigned to its nodes (one key per node) provided the following two conditions are met:
+
+• The tree's shape requirement - The binary tree is essentially complete, that is, all its levels are full except possibly the last level, where only some rightmost leaves may be missing.
+• The parental dominance requirement - The key at each node is greater than or equal to the keys at its children.
+
+**Properties of Heap:**
+
+• There exists exactly one essentially complete binary tree with n nodes. Its height is equal to ⌊log2n⌋.
+• The root of a heap always contains its largest element.
+• A node of a heap considered with all its descendants is also a heap.
+• A heap can be implemented as an array by recording its elements in the top-down, left-to-right fashion. It is convenient to store the heap's elements in positions 1 through n of such an array, leaving H[0] either unused or putting there a sentinel whose value is greater than every element in the heap.
+
+**Array Representation:** In such a representation:
+
+• The parental node keys will be in the first ⌊n/2⌋ positions of the array.
+
+Note: ⌊log2n⌋ denotes the ceiling function, which returns the smallest integer greater than or equal to the logarithm of n to the base 2.
+
+### 2. Representation of Heap using Array
+
+**2. Representation of Heap using Array**
+
+A heap can be implemented as an array by recording its elements in the top-down, left-to-right fashion. It is convenient to store the heap's elements in positions 1 through n of such an array, leaving H[0] either unused or putting there a sentinel whose value is greater than every element in the heap.
+
+**Properties of Heap Representation**
+
+• The parental node keys will be in the first ⌊n/2⌋ positions of the array.
+• The heap can be represented using an array of size n+1, where n is the number of elements in the heap.
+
+**Example**
+
+Suppose we have a heap with 5 elements: 40, 48, 12, 92, and 33. The heap representation using an array would be:
+
+| Index | Value |
+| --- | --- |
+| 1 | 40 |
+| 2 | 48 |
+| 3 | 12 |
+| 4 | 92 |
+| 5 | 33 |
+
+In this representation, the parental node keys are in the first ⌊5/2⌋ = 2 positions of the array, which are 40 and 48.
+
+**Key Concepts**
+
+• **Heap**: A binary tree with keys assigned to its nodes, provided the two conditions of shape requirement and parental dominance are met.
+• **Shape Requirement**: The binary tree is essentially complete, with all levels full except possibly the last level, where only some rightmost leaves may be missing.
+• **Parental Dominance**: The key at each node is greater than or equal to the keys at its children.
+• **Array Representation**: A heap can be implemented as an array by recording its elements in the top-down, left-to-right fashion.
+• **Sentinel**: A value stored in the first position of the array (H[0]) that is greater than every element in the heap.
+
+### 3. Construction of Heap - Top-Down Approach
+
+**3. Construction of Heap - Top-Down Approach**
+
+**Definition:** The top-down approach for constructing a heap involves starting with the root node and moving down to the child nodes, ensuring that the heap property is maintained at each step.
+
+**Key Concepts:**
+
+* **Heap Property:** The key at each node is greater than or equal to the keys at its children.
+* **Parent-Child Relationship:** Each node in the heap has a parent node and zero or more child nodes.
+
+**Construction Algorithm:**
+
+* Start with the root node (index 1) and consider it as the largest element.
+* Identify the child nodes (indices 2 and 3) and compare the parent node's key with the child nodes' keys.
+* If the parent node's key is smaller than a child node's key, swap the parent node's key with the child node's key.
+* Repeat steps 2-3 until the heap property is satisfied for all nodes.
+* Continue this process until the entire heap is constructed.
+
+**Important Points:**
+
+* The algorithm starts at the root node and moves down to the child nodes.
+* The heap property is maintained by comparing the parent node's key with the child nodes' keys.
+* The algorithm stops when the heap property is satisfied for all nodes.
+* The heap is constructed in a top-down manner, starting with the root node.
+
+**Example:**
+
+Suppose we have the following array of elements: [25, 57, 48, 37, 12, 92, 86, 33]
+
+* Start with the root node (index 1) and consider it as the largest element (92).
+* Identify the child nodes (indices 2 and 3) and compare the parent node's key (92) with the child nodes' keys (57 and 48).
+* Since 92 is greater than both 57 and 48, the heap property is satisfied for this node.
+* Repeat this process for the child nodes, comparing their keys with their parent node's key.
+* Continue this process until the entire heap is constructed.
+
+**Formula:** ⌊log2n⌋, where n is the number of nodes in the heap.
+
+Note: The formula represents the height of the heap, which is equal to the logarithm of the number of nodes in the heap.
+
+### 4. Heapify Operation
+
+**4. Heapify Operation**
+
+The heapify operation is a crucial step in maintaining the heap property after removing an element from the heap. This process ensures that the remaining elements in the heap are rearranged to satisfy the heap property.
+
+**Definition:** The heapify operation takes a heap and an index i as input, and it rearranges the elements in the heap such that the heap property is maintained.
+
+**Important Points:**
+
+* The heapify operation is used to maintain the heap property after removing an element from the heap.
+* The operation starts by considering the last non-leaf node (i.e., the node at index i) and moves upwards to the root node.
+* At each step, the operation compares the element at the current node with its children and swaps them if necessary to maintain the heap property.
+* The operation continues until the root node is reached or the heap property is satisfied.
+
+**Algorithm:**
+
+1. Initialize the child pointer to the left child (i.e., 2*i + 1).
+2. If the child pointer is within the valid range (i.e., 0 ≤ child pointer ≤ n-1), compare the element at the current node with the element at the child pointer.
+3. If the child pointer is greater than the element at the current node, swap the elements.
+4. If the child pointer is not within the valid range, set the child pointer to -1 to indicate that the heap property is satisfied.
+5. Repeat steps 1-4 until the root node is reached or the heap property is satisfied.
+
+**Example:**
+
+Consider a heap with the following elements: 86, 37, 57, 33, 12, 45, 92.
+
+After removing the element at index 0 (i.e., 92), the heap is no longer valid. To maintain the heap property, the heapify operation is performed starting from the last non-leaf node (i.e., index 6).
+
+The operation compares the element at index 6 (i.e., 25) with its children and swaps them if necessary. The resulting heap is:
+
+86, 37, 57, 33, 12, 45, 25
+
+The operation continues until the root node is reached, resulting in the final heap:
+
+86, 37, 57, 33, 12, 45, 25
+
+**Formulas and Algorithms:**
+
+* The heapify operation can be implemented using the following algorithm:
+```
+heapify(i) {
+  child = 2*i + 1;
+  if (child <= n-1 && heap[child] > heap[i]) {
+    swap(heap[i], heap[child]);
+    heapify(child);
+  }
+  child = 2*i + 2;
+  if (child <= n-1 && heap[child] > heap[i]) {
+    swap(heap[i], heap[child]);
+    heapify(child);
+  }
+}
+```
+* The time complexity of the heapify operation is O(log n), where n is the number of elements in the heap.
+
+### 5. Heap Construction - Bottom-Up Approach
+
+**5. Heap Construction - Bottom-Up Approach**
+
+In this section, we will discuss the bottom-up approach for constructing a heap. This approach involves starting with individual elements and gradually building the heap by comparing and swapping elements.
+
+**Key Concepts:**
+
+* **Heap:** A binary tree with keys assigned to its nodes, where the key at each node is greater than or equal to the keys at its children.
+* **Essentially Complete Binary Tree:** A binary tree where all levels are full except possibly the last level, where only some rightmost leaves may be missing.
+* **Parental Dominance:** The key at each node is greater than or equal to the keys at its children.
+
+**Bottom-Up Approach for Heap Construction:**
+
+* Start with individual elements and gradually build the heap by comparing and swapping elements.
+* Compare the new element with its parent node and swap them if the new element is greater.
+* Repeat this process until the new element is placed at its correct position in the heap.
+* Continue this process until all elements are inserted into the heap.
+
+**Important Points:**
+
+* The heap construction process involves repeated comparisons and swaps of elements.
+* The new element is compared with its parent node and swapped if necessary.
+* The process continues until the new element is placed at its correct position in the heap.
+* The heap construction process is repeated until all elements are inserted into the heap.
+
+**Example:**
+
+Suppose we have the following elements: 86, 25, 57, 48, 37, 12
+
+* Start with the individual elements: 86, 25, 57, 48, 37, 12
+* Compare 57 with its parent node (86) and swap them since 57 is greater.
+* Compare 48 with its parent node (57) and swap them since 48 is greater.
+* Compare 25 with its parent node (48) and swap them since 25 is smaller.
+* Repeat this process until all elements are inserted into the heap.
+
+**Formula/Algorithm:**
+
+The heap construction algorithm can be implemented using the following steps:
+
+1. Start with individual elements
+2. Compare the new element with its parent node and swap them if necessary
+3. Repeat step 2 until the new element is placed at its correct position in the heap
+4. Continue this process until all elements are inserted into the heap
+
+**Example Pseudocode:**
+
+```
+function buildHeap(arr):
+    for i in range(len(arr)):
+        heapify(arr, i)
+    return arr
+
+function heapify(arr, i):
+    while i > 0:
+        parent = (i-1) // 2
+        if arr[parent] <= arr[i]:
+            break
+        swap(arr, parent, i)
+        i = parent
+```
+
+Note: The above pseudocode is a simplified example and may not be optimized for performance.
+
+### 6. Implementation of Heap Data Structure
+
+**6. Implementation of Heap Data Structure**
+
+**Definition and Properties**
+
+A heap is a binary tree with keys assigned to its nodes, satisfying the following two conditions:
+
+* **Shape Requirement**: The binary tree is essentially complete, meaning all levels are full except possibly the last level, where only some rightmost leaves may be missing.
+* **Parental Dominance Requirement**: The key at each node is greater than or equal to the keys at its children.
+
+**Heap Tree**
+
+* A heap tree is a binary tree that satisfies the above conditions.
+* Only the topmost binary tree is a heap, as the shape requirement is not satisfied for lower levels.
+
+**Properties of Heap**
+
+* **Uniqueness**: There exists exactly one essentially complete binary tree with n nodes, with a height equal to ⌊log2n⌋.
+* **Largest Element**: The root of a heap always contains its largest element.
+* **Heap Property**: A node of a heap considered with all its descendants is also a heap.
+* **Array Representation**: A heap can be implemented as an array by recording its elements in the top-down, left-to-right fashion. It is convenient to store the heap's elements in positions 1 through n of such an array, leaving H[0] either unused or putting there a sentinel whose value is greater than every element in the heap.
+
+**Heap Implementation Algorithm**
+
+The heap implementation algorithm involves the following steps:
+
+* Initialize the heap array with the given elements.
+* Iterate from n-1 to 1 (where n is the number of elements in the heap).
+* For each iteration, consider the element at index i.
+* If i is greater than 0, compute the parent and child indices.
+* If the child element is greater than the parent element, swap the elements.
+* Repeat the process until the heap property is satisfied.
+
+**Example**
+
+Suppose we have the following elements: 12, 25, 33, 37
+The heap tree can be constructed as follows:
+```
+     37
+    /  \
+  33    25
+  / \
+12   12
+```
+The heap property is satisfied, as the key at each node is greater than or equal to the keys at its children.
+
+**Code Implementation**
+
+The heap implementation code can be written as follows:
+```python
+def heapify(arr, n):
+    for i in range(n-1, 0, -1):
+        parent = (i-1)//2
+        if arr[i] > arr[parent]:
+            arr[i], arr[parent] = arr[parent], arr[i]
+        child = 2*i + 1
+        if child < n and arr[child] > arr[i]:
+            arr[i], arr[child] = arr[child], arr[i]
+        child = 2*i + 2
+        if child < n and arr[child] > arr[i]:
+            arr[i], arr[child] = arr[child], arr[i]
+```
+This code implements the heapify algorithm, which is used to maintain the heap property.
+

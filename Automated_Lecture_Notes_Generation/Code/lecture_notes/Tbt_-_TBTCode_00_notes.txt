@@ -1,0 +1,333 @@
+# Lecture Notes: Tbt - TBTCode 00
+
+# "Threaded Binary Search Tree"
+
+### 1. Introduction to Threaded Binary Search Tree
+
+**1. Introduction to Threaded Binary Search Tree**
+
+A Threaded Binary Search Tree (TBT) is a variation of a traditional binary search tree that allows for efficient traversal of the tree without the need for an explicit stack. This is achieved by using the right or left pointer of a node to point to the inorder successor or predecessor, respectively.
+
+**Key Concepts:**
+
+* **Threaded Binary Search Tree (TBT):** A binary search tree where the right or left pointer of a node is used to point to the inorder successor or predecessor, respectively.
+* **Right-In Threaded Binary Tree:** A TBT where the right pointer of a node points to the inorder successor if it is not pointing to a child.
+* **Left-In Threaded Binary Tree:** A TBT where the left pointer of a node points to the inorder predecessor if it is not pointing to a child.
+* **In Threaded Binary Tree:** A TBT where both the right and left pointers are used to point to the inorder successor and predecessor, respectively.
+
+**Important Points:**
+
+• A TBT allows for efficient traversal of the tree without the need for an explicit stack.
+• The right or left pointer of a node is used to point to the inorder successor or predecessor, respectively.
+• This is achieved by modifying the traditional binary search tree structure.
+• TBTs can be used to implement various data structures and algorithms.
+
+**Example:**
+
+* Consider a binary search tree with nodes A, B, C, D, E, F, G, H, and I.
+* In a traditional binary search tree, the inorder traversal would require an explicit stack to keep track of the node addresses.
+* In a TBT, the right pointer of each node can be used to point to the inorder successor, allowing for efficient traversal of the tree.
+
+**Formula/Algorithm/Example:**
+
+* None mentioned in this section.
+
+### 2. Node Structure for Threaded Binary Search Tree
+
+**2. Node Structure for Threaded Binary Search Tree**
+
+A Threaded Binary Search Tree (TBT) is a binary search tree where each node has three pointers: left child, right child, and thread. The thread pointer is used to point to the inorder successor or predecessor of a node.
+
+**Key Concepts:**
+
+* **Node Structure:** A node in a TBT has three pointers:
+	+ Left child (L)
+	+ Right child (R)
+	+ Thread (T)
+* **Thread Pointer:** The thread pointer is used to point to the inorder successor or predecessor of a node.
+* **Right-In Threaded Binary Tree:** In this type of TBT, the right pointer of a node points to the inorder successor if it is not pointing to a child.
+* **Left-In Threaded Binary Tree:** In this type of TBT, the left pointer of a node points to the inorder predecessor if it is not pointing to a child.
+* **In Threaded Binary Tree:** In this type of TBT, both the left and right pointers of a node are used to store the inorder predecessor and successor.
+
+**Important Points:**
+
+* A node in a TBT can be one of the following:
+	+ A leaf node (no children)
+	+ An internal node (has children)
+	+ A threaded node (has a thread pointer)
+* The thread pointer of a node is set to null if the node has no inorder successor or predecessor.
+* The thread pointer of a node is set to the inorder successor or predecessor of the node if it exists.
+
+**Example:**
+
+Suppose we have a binary tree with the following nodes:
+```
+     40
+    /  \
+   30   50
+  / \   / \
+20  38 42  60
+```
+To create a TBT from this binary tree, we would set the thread pointers as follows:
+```
+     40
+    /  \
+   30   50
+  / \   / \
+20  38 42  60
+  |      |      |
+  T      T      T
+```
+In this example, the thread pointer of node 40 points to node 30, the thread pointer of node 30 points to node 20, and so on.
+
+### 3. Implementation of Threaded Binary Search Tree
+
+**3. Implementation of Threaded Binary Search Tree**
+
+**Overview**
+
+The implementation of a Threaded Binary Search Tree (TBT) involves modifying the traditional Binary Search Tree (BST) to utilize the right and/or left pointers to store the inorder successor and/or predecessor, respectively. This allows for the elimination of the explicit stack required for iterative inorder traversal.
+
+**Key Concepts**
+
+* **Right-In Threaded Binary Tree**: A TBT where the right pointer of a node points to the inorder successor if it is not pointing to a child.
+* **Left-In Threaded Binary Tree**: A TBT where the left pointer of a node stores the inorder predecessor.
+* **In Threaded Binary Tree**: A TBT where both the right and left pointers are used to store the inorder successor and predecessor, respectively.
+
+**Implementation**
+
+* **Set Write Function**:
+	+ Accepts two pointers: `node` and `new_node`.
+	+ Checks if `p` is the right child of its parent and has a right thread.
+	+ If `p` has a right child, returns without modifying the tree.
+	+ If `p` is a right thread, sets `p`'s right child to `new_node` and sets `new_node`'s right thread to 0.
+	+ If `p` is not a right thread, sets `p`'s right child to `new_node` and sets `new_node`'s right thread to 1.
+* **Traversal**:
+	+ Creates two temporary pointers: `P` and `Q`.
+	+ Sets `P` to the root of the tree.
+	+ Traverses the tree as long as there are nodes to be printed.
+	+ Initially, `Q` is set to null.
+	+ In each iteration:
+		- Traverses left subtree of `P`.
+		- When `P` becomes null, prints the information of `Q` if it is not null.
+		- Sets `P` to the right child of `Q`.
+		- Repeats the process until `P` becomes null.
+
+**Example**
+
+Suppose we have a TBT with the following nodes:
+
+* 65
+* 62
+* 78
+* 56
+* 63
+* 58
+
+To traverse this tree using the set write function and traversal algorithm:
+
+1. Initialize `P` to the root node (65) and `Q` to null.
+2. Traverse the left subtree of `P` until `P` becomes null.
+3. Print the information of `Q` (65) and set `P` to the right child of `Q` (62).
+4. Repeat steps 2-3 until `P` becomes null.
+5. Print the information of `Q` (62) and set `P` to the right child of `Q` (78).
+6. Repeat steps 2-5 until `P` becomes null.
+
+The traversal order is: 56, 62, 63, 65, 58, 78.
+
+### 4. Creating the Root Node
+
+**4. Creating the Root Node**
+
+In a Threaded Binary Search Tree (Threaded BST), the root node is the starting point of the traversal. The root node is created by initializing a tree object and setting its root to null. This section will discuss the creation of the root node and the subsequent traversal process.
+
+**Key Concepts:**
+
+* **Threaded BST:** A binary tree where the right pointer of a node points to the inorder successor if it is not pointing to a child, and the left pointer stores the inorder predecessor.
+* **Root Node:** The starting point of the traversal in a Threaded BST.
+
+**Creating the Root Node:**
+
+To create the root node, the following steps are followed:
+
+* Initialize a tree object and set its root to null.
+* Create a new node with the desired information (e.g., key, value).
+* Set the root node to the newly created node.
+* Initialize a pointer, p, to the root node.
+* Initialize a pointer, q, to null.
+
+**Traversal Process:**
+
+The traversal process begins with the root node and continues until the entire tree is traversed. The process involves the following steps:
+
+* While p is not null:
+	+ If q is a right thread, print p's information and move p to the right child.
+	+ If q is not a right thread, set q to p and move p to the left child.
+* While q is not null:
+	+ Print q's information.
+	+ Set q to null and move p to the left child.
+* Once p and q are both null, the traversal is complete.
+
+**Example:**
+
+Suppose we have a threaded binary tree with the following nodes:
+
+* 55
+* 40
+* 78
+* 62
+* 89
+* 30
+
+The traversal process would begin with the root node (55) and continue as follows:
+
+* Print 55's information.
+* Move p to the right child (40).
+* Since q is a right thread, print 40's information.
+* Move p to the right child (78).
+* Since q is a right thread, print 78's information.
+* Move p to the right child (62).
+* Since q is not a right thread, set q to p and move p to the left child.
+* Print 62's information.
+* Set q to null and move p to the left child.
+* Continue the traversal until the entire tree is traversed.
+
+**Code:**
+
+The following code demonstrates the creation of the root node and the traversal process:
+```c
+void createRoot(Node* root) {
+    root = new Node();
+    root->key = 55;
+    root->left = null;
+    root->right = null;
+    root->right_thread = true;
+}
+
+void traverse(Node* p, Node* q) {
+    while (p != null) {
+        if (q->right_thread) {
+            printf("%d ", p->key);
+            p = p->right;
+        } else {
+            q = p;
+            p = p->left;
+        }
+    }
+    while (q != null) {
+        printf("%d ", q->key);
+        q = null;
+    }
+}
+```
+Note that this code is a simplified example and may need to be modified to fit the specific requirements of your implementation.
+
+### 5. Traversal and Insertion in Threaded Binary Search Tree
+
+**5. Traversal and Insertion in Threaded Binary Search Tree**
+
+**Traversal in Threaded Binary Search Tree**
+
+* **Definition:** Traversal in a threaded binary search tree (TBT) is the process of visiting each node in the tree in a specific order, without using an explicit stack.
+* **Types of Traversal:**
+	+ Inorder Traversal
+	+ Preorder Traversal
+	+ Postorder Traversal
+* **Inorder Traversal in TBT:**
+	+ Start at the root node
+	+ Traverse left subtree until a leaf node is reached
+	+ Visit the current node
+	+ Traverse right subtree until a leaf node is reached
+	+ If the right pointer of a node is not pointing to a child, follow the thread to the inorder successor
+* **Key Point:** The right pointer of a node in a TBT is used to point to the inorder successor if it is not pointing to a child.
+
+**Insertion in Threaded Binary Search Tree**
+
+* **Definition:** Insertion in a TBT is the process of adding a new node to the tree while maintaining the threaded structure.
+* **Steps for Insertion:**
+	+ Find the correct position for the new node in the tree
+	+ Insert the new node
+	+ Update the right pointer of the new node to point to the inorder successor if it is not pointing to a child
+	+ Update the left pointer of the new node to point to the inorder predecessor if it is not pointing to a child
+* **Key Point:** The insertion process in a TBT is similar to that of a regular binary search tree, but with the additional step of updating the threaded pointers.
+
+**Example:**
+
+Suppose we have a TBT with the following nodes:
+
+A (root)
+B (left child of A)
+C (left child of B)
+D (right child of B)
+E (right child of A)
+
+To insert a new node F with value 5, we would:
+
+1. Find the correct position for F in the tree (between B and C)
+2. Insert F as the right child of B
+3. Update the right pointer of F to point to the inorder successor (C)
+4. Update the left pointer of F to point to the inorder predecessor (B)
+
+The resulting TBT would be:
+
+A (root)
+B (left child of A)
+C (left child of B)
+D (right child of B)
+E (right child of A)
+F (right child of B)
+
+Note that the threaded pointers have been updated to maintain the correct threaded structure.
+
+### 6. Right-In, Left-In, and In Threaded Binary Search Tree
+
+**6. Right-In, Left-In, and In Threaded Binary Search Tree**
+
+In this section, we will discuss the different types of threaded binary search trees, which are Right-In, Left-In, and In Threaded Binary Search Trees. These trees are modified binary search trees where the right and left pointers are used to store the inorder successor and predecessor, respectively.
+
+**Definitions:**
+
+* **Right-In Threaded Binary Tree:** A tree where the right pointer of a node points to the inorder successor if it is not pointing to the child.
+* **Left-In Threaded Binary Tree:** A tree where the left pointer of a node stores the inorder predecessor.
+* **In Threaded Binary Tree:** A tree where both the right and left pointers are used to store the inorder successor and predecessor, respectively.
+
+**Key Points:**
+
+* Right-In Threaded Binary Tree:
+	+ The right pointer of a node points to the inorder successor if it is not pointing to the child.
+	+ This type of tree is useful when we need to perform an inorder traversal without using an explicit stack.
+* Left-In Threaded Binary Tree:
+	+ The left pointer of a node stores the inorder predecessor.
+	+ This type of tree is useful when we need to perform a reverse inorder traversal without using an explicit stack.
+* In Threaded Binary Tree:
+	+ Both the right and left pointers are used to store the inorder successor and predecessor, respectively.
+	+ This type of tree is useful when we need to perform both inorder and reverse inorder traversals without using an explicit stack.
+
+**Example:**
+
+Consider the following binary tree:
+
+```
+       A
+     /   \
+    B     C
+   / \   / \
+  D   E F   G
+```
+
+A Right-In Threaded Binary Tree of this tree would look like:
+
+```
+       A
+     /   \
+    B -> C
+   / \   / \
+  D   E F -> G
+```
+
+In this tree, the right pointer of node B points to node C, which is the inorder successor of node B. Similarly, the right pointer of node F points to node G, which is the inorder successor of node F.
+
+**Conclusion:**
+
+In conclusion, Right-In, Left-In, and In Threaded Binary Search Trees are modified binary search trees where the right and left pointers are used to store the inorder successor and predecessor, respectively. These trees are useful when we need to perform inorder and reverse inorder traversals without using an explicit stack.
+
